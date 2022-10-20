@@ -55,7 +55,7 @@ const 변수 = function(param1, param2,... ) {
     return 결과값
 }
 
-    가장 기본적인 형태 
+    @가장 기본적인 형태 
     const 변수 = function() {
     } ....(1)
     
@@ -69,7 +69,7 @@ function 변수(param1, param2,...){
     return 결과값
 }
 
-    가장 기본적인 형태 
+    @가장 기본적인 형태 
     function 변수(){
     }
 
@@ -81,7 +81,7 @@ const 변수 = (param1, param2,... )=> {
     return 결과값 
 }
 
-    가장 기본적인 형태
+    @가장 기본적인 형태
     const 변수 = ()=> {
     }
 
