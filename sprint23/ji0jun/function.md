@@ -2,6 +2,9 @@
 # 주요 테마: 함수 
 --------------------
 
+
+
+
 # HTML 구조의 요소를 가져오기.
 
 querySelector() 의 경우, 
@@ -9,6 +12,22 @@ querySelector() 의 경우,
 
 다만, 대부분의 태그는 중복되기 때문에, 
 #id 와 .class 의 표현을 쓴다. 
+
+
+# HTML의 button tag에서 버튼 클릭에 대한 동작 설정이 가능한 메소드.
+
+@onclick:할당되어 있는 수식, 혹은 코드를 실행
+
+<head>
+    <script>
+        const btnFunc = function() {
+            console.log("버튼이 눌렸어요!")
+        }
+    </script>
+</head>
+<body>
+    <button onclick="btnFunc()">버튼</button>
+</body>
 
 
 # 날짜 객체 불러오기
@@ -27,6 +46,7 @@ new Date("0000-00-00")
 호이스팅 영향 여부
 O : 함수 선언식의 기명함수 
 X : 함수 표현식의 익명함수
+
 
 # 익명함수 
 
@@ -79,6 +99,7 @@ const 변수 = (param1, param2,... )=> {
 
 !( false == 0 == undefined == null == "" == NaN ) == true == 1 
 
+
 # 데이터 타입:
 
     원시타입: String, Number, Boolean, Bight, undefined, System, null
@@ -89,6 +110,7 @@ const 변수 = (param1, param2,... )=> {
 
         @참조타입의 "가변성"이란, 기존 메모리에서 참조를 통한 새로운 메모리를 할당하는 속성이다. 
         기존 메모리가 "불변성"을 가지는 것은 동일하다.
+
 
 
 # 조건문 기본 틀:
