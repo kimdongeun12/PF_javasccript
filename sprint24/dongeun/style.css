@@ -1,0 +1,8 @@
+.wrap {  display: flex; height: 100vh; align-items: center; }
+.wrap .box { position: relative; width: 100%; max-width: 720px; margin: 0 auto; background-color: rgba(255,255,255,0.5); }
+.wrap .box h1 { text-align: center; font-size: 32px; margin-bottom: 12px; }
+.wrap .box .d-day-message { text-align: center; font-size: 18px; justify-content: center }
+.wrap .box .d-day-container { display: flex; font-size: 24px; justify-content: center; margin-bottom: 12px; }
+.wrap .box .target-selector { display: flex; font-size: 24px; justify-content: center; margin-bottom: 12px; }
+.wrap .box .target-selector input { width: 100px; }
+.wrap .box .start-btn { display: block; margin: 0 auto; }
