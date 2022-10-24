@@ -1,152 +1,45 @@
-## 함수선언 종류
+## DOM
 
-### 함수 선언식 vs 함수 표현식
-
-```
-function 함수선언식(param1, param2){
-    // ...code here
-    return 결과값
-}
-```
-
-- 함수 선언식
-함수명이 정의되어 있고, 별도의 할당 명령이 없는 것
-
-```
-const 함수표현식 = function(param1, param2){
-	// ...code here
-	return 결과값;
-};
-```
-
-- 함수 표현식
-정의한 function을 별도의 변수에 할당하는 것
+> DOM(문서 객체 모델) : 웹 페이지에 대한 프로그래밍 인터페이스입니다. 기본적으로 여러 프로그램들이 페이지의 콘텐츠 및 구조, 그리고 스타일을 읽고 조작할 수 있는 API를 제공합니다.
 
 
---- 
+브라우저는 HTML 문서를 파싱하는 과정에서 DOM이라는 트리구조 형태의 객체를 생성하게 됩니다.
 
-주요 차이점은 호이스팅에서 차이가 나며 
+트리 구조란, 자료구조의 일종으로 여러개의 노드로 구성되어 있으며 하나의 부모가 여러개의 자식 노드를 가지게 되는 형태를 이야기합니다.
 
-함수 선언식에서는 전체에서 *호이스팅을하여 정의된 범위의 맨 위로 호이스팅되서 함수 선언 전에 함수를 사용할 수 있다는점이 있어요.
+### Tree구조
 
-함수 표현식은 별도의 변수에 할당하게 되는데 호이스팅의 영향을 받지 않아요
+이미지
 
-*호이스팅 : 변수와 함수의 메모리 공간을 선언 전에 미리 할당하는 것을 의미합니다. 
+- head, body, title, div...
+요소(element) 노드라 부른다. 속성 노드를 가질 수 있는 유일한 node입니다.
 
-ex)
+- src=”…”, id=”…”
+속성(attribute) 노드라 부른다. 이들은 요소 노드에 관한 별도의 정보를 담고 있지만, 해당 요소 노드의 child node에는 속하지 않는다.
 
-```
+- “ToDo”, “인사하기”…
+텍스트(text) 노드라고 부른다. 텍스트 노드는 child node, 자식 노드를 가질 수 없기 때문에 항상 leaf node가 된다.
 
-sum(10 , 10); // 20
-minus(30 , 10) // Uncaught ReferenceError: minus is not defined
+Parent Node : 각 node의 바로 위에 위치한 Node를 Parent Node, 부모 노드라 한다.
+Chile Node : 각 node의 바로 아래에 위치한 Node를 Child Node, 자식 노드라 한다.
+Leaf Node : 트리구조 내에서 가장 끝단에 위치한, Child Node가 없는 Node를 가리킨다.
 
-function sum (num1 , num2){
-    return num1 + num2;
-};
+### DOM Method
 
-const minus = function(num1 , num2) {
-    return num1 - num2;
-};
+document.getElementById()
+⇒ Element Node의 id 속성을 체크해서 해당하는 Element를 참조해온다.
 
-sum(10 , 20) // 30
-minus(30 , 10) // 20
+document.getElementByClass()
+⇒ Element Node의 class 속성을 체크해서 해당하는 Element를 참조해온다.
 
-```
+document.querySelector()
+⇒ 소괄호 안에 입력한 값에 해당하는 Element를 참조해온다. id(”#”)를 입력하는 경우 id를 기반으로, class(”.”)를 입력하는 경우 class를 기반으로 참조
 
-```
-sum(10 , 10); // 0
+document.querySelectorAll()
+⇒ 소괄호 안에 입력한 값에 해당하는 Element를 참조해온다. querySelector와 다르게 배열 형태로 모든 요소를 참조해온다.
 
-function sum (num1 , num2){
-    return num1 + num2;
-};
+document.createElement()
+⇒ 새로운 Node를 생성합니다. Node의 형태는 생성되지만 DOM에 직접 추가해주는 과정을 거치치 않으면 DOM에 속하지 않습니다.
 
-const minus = function(num1 , num2) {
-    return num1 - num2;
-};
-
-sum(10 , 20) // -10
-minus(30 , 10) // 20
-
-function sum (num1 , num2){
-    return num1 - num2;
-};
-
-const minus = function(num1 , num2) { // Uncaught SyntaxError: Identifier 'minus' has already been declared
-    return num1 * num2;
-};
-
-```
-
-선언식을 사용하면 재할당이 가능하기에 선언이된 맨 마지막 함수가 선언이되어요
-표현식을 사용하면 재선언이 불가능하기에 예상치 못한 결과를 막을 수 있어요.
-
-### 화살표 함수
-
-```
-const 함수표현식 = (param1, param2) => {
-	// ...code here
-	return 결과값;
-};
-```
-- 화살표 함수 
-함수 표현식과 거의 동일하게 사용 가능해요
-
-
-
-## 원시타입, 참조타입
-
-### 원시타입 (Primitive Type)
-> 자바스크립트에서 원시 타입의 데이터(primitive type data; 원시 자료형)는 객체가 아니면서 method를 가지지 않는 타입을 말한다.
-
-원시타입의 종류
-
-- 불린(Boolean)
-- 숫자(Number)
-- 문자열(String)
-- undefined
-- null
-- bigint
-- symbol
-
-원사타입의 특징
-
-- 원시타입은 불변성 이라는 특징을 가져요.
-
-```
-
-var x = 'Hello'; // 원시 타입 데이터를 선언
-var y = x; // 값을 새 변수에 복사
-
-x = 'world'; // 'x'의 값을 변경
-
-console.log(x); // 'world'
-console.log(y); // 'hello'; 'y'의 값은 변경되지 않음
-
-```
-
-### 참조타입 (Reference Type)
-> 자바스크립트에서 원시 타입(Primitive Type)이 아닌 타입들을 말한다.
-
-참조타입의 종류
-- 객체(Object)
-- 배열(Array)
-- 함수(function)
-
-참조타입의 특징
-참조타입의 특징은 가변성 을 가지고 있어요.
-
-```
-
-var x = { name : 'dongeun' }; // 참조 타입을 선언
-var y = x; // 참조를 새 변수에 복사
-
-x.name = 'Seo'; // 참조 타입 데이터를 변경
-
-console.log(y); //name : "Seo" , 'x'와 'y'는 동일한 참조를 담고 있기 때문에 동일한 객체를 가리킨다.
-
-```
-
-### 원시타입과 참조타입의 차이점
-
-원시타입은 하나의 데이터만 가지며 변수에 할당할시 값으로 충족하고
-참조타입은 데이터'들'을 저장한 후 주소를 가지고 변수에 할당할 시 주소로 충족한다.
+document.appendChild()
+⇒ Element Node를 현재 DOM에 추가합니다. 이때의 document는 다른 Element가 될 수도 있습니다.
